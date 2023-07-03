@@ -16,6 +16,7 @@ const myWixClient = createClient({
 
 const Search = () => {
   const [serviceList, setServiceList] = useState([]);
+  const fetchServices = async () => {};
   return <>Search</>;
 };
 
