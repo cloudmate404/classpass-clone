@@ -1,5 +1,5 @@
 // from wix, import wixclient
-import { createClient, OAuthStrategy } from "@wix.api-client";
+import { createClient, OAuthStrategy } from "@wix/api-client";
 import { NextResponse } from "next/server";
 
 export async function middleware(request) {
@@ -13,7 +13,6 @@ export async function middleware(request) {
       "session",
       JSON.stringify(await myWixClient.auth.generateVisitorTokens())
     );
+    return response;
   }
-
-  return response;
 }
