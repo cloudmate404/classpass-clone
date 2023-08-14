@@ -1,3 +1,4 @@
+// this middleware is from the WIX documentation
 // from wix, import wixclient
 import { createClient, OAuthStrategy } from "@wix/api-client";
 import { NextResponse } from "next/server";

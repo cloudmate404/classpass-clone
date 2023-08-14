@@ -4,8 +4,10 @@ import { createClient, OAuthStrategy } from "@wix/api-client";
 // services are the bookings you filled on wix site
 import { services } from "@wix/bookings";
 import Cookies from "js-cookie";
+import Card from "@/components/Card";
 
 const myWixClient = createClient({
+  // the "services" is what i want to get back, hence why it is in "modules"
   modules: { services },
   auth: OAuthStrategy({
     clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID,
@@ -21,13 +23,27 @@ const Search = () => {
     // All in the WIX documentation
     const serviceList = await myWixClient.services.queryServices().find();
     setServiceList(serviceList.items);
-  };
+  }; 
 
   useEffect(() => {
     fetchServices();
   }, []);
   console.log(serviceList);
-  return <>Search</>;
+  return 
+  <div className="search-container">
+    <div className="results-container">
+      <h2> Choose Class: </h2>
+      <ul>
+        <li>
+        <Link href="/">
+          <Card />
+        </Link>
+           
+        </li>
+      </ul>
+    </div>
+  </div>
+  ;
 };
 
 export default Search;
